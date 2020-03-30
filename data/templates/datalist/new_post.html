@@ -1,0 +1,67 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<a href="{% url 'newAll' %}" class="btn btn-primary">Mới--></a>
+        <br><br>
+    <div class="row">
+        {% for post in Posts %}
+        <div class="col">
+            <div class="card-deck text-dark">
+                <div class="card" style="width:200px; height: 400px;">
+                    <img class="card-img-top img-fluid h-50" src="{{post.images.url}}">
+                    <div class="card-body">
+                      <h4 class="card-title">{{post.title}}</h4>
+                      <p class="card-text">{{post.date|date:"d-m-Y"}}</p>
+                      <p class="card-text text-danger">{{post.price}} đ</p>
+                      <a href="{{post.id}}" class="btn btn-primary">Xem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="#" class="btn btn-primary">Star War--></a>
+    <br><br>
+    <div class="row">
+        {% for sw in SW %}
+            <div class="col-sm-2">
+                <div class="card-deck text-dark">
+                    <div class="card" style="width:200px; height: 400px;">
+                        <img class="card-img-top img-fluid h-50" src="{{sw.images.url}}">
+                        <div class="card-body">
+                        <h4 class="card-title">{{sw.title}}</h4>
+                        <p class="card-text">{{sw.date|date:"d-m-Y"}}</p>
+                        <p class="card-text text-danger">{{sw.price}} đ</p>
+                        <a href="{{sw.id}}" class="btn btn-primary">Xem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <br>
+    <a href="#" class="btn btn-primary">Ninjago--></a>
+    <br><br>
+    <div class="row">
+        {% for ng in NG %}
+            <div class="col-sm-2">
+                <div class="card-deck text-dark">
+                    <div class="card" style="width:200px; height: 400px;">
+                        <img class="card-img-top img-fluid h-50" src="{{ng.images.url}}">
+                        <div class="card-body">
+                        <h4 class="card-title">{{ng.title}}</h4>
+                        <p class="card-text">{{ng.date|date:"d-m-Y"}}</p>
+                        <p class="card-text text-danger">{{ng.price}} đ</p>
+                        <a href="{{ng.id}}" class="btn btn-primary">Xem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
